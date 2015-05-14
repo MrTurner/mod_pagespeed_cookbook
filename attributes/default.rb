@@ -32,3 +32,7 @@ when 'rhel', 'fedora'
     'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.rpm'
   end
 end
+
+default['mod_pagespeed']['enabled?'] = true
+default['mod_pagespeed']['vhostconfig'] = true
+default['mod_pagespeed']['custom_directives'] = []
