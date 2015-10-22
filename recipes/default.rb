@@ -22,16 +22,22 @@ if %w(rhel debian fedora).include?(node['platform_family'])
   package 'mod_pagespeed' do
     source "#{Chef::Config[:file_cache_path]}/#{pkg}"
     action :install
+    case node['platform_family']
+    when 'rhel', 'fedora'
+      provider Chef::Provider::Package::Rpm
+    when 'debian'
+      provider Chef::Provider::Package::Dpkg
+    end
   end
 
   apache_module 'pagespeed' do
     conf true
     if node['apache']['version'] == '2.2'
       filename 'mod_pagespeed.so'
-      name 'mod_pagespeed'
+      #name 'mod_pagespeed'
     elsif node['apache']['version'] == '2.4'
       filename 'mod_pagespeed_ap24.so'
-      name 'mod_pagespeed_ap24'
+      #name 'mod_pagespeed_ap24'
     end
   end
 else
