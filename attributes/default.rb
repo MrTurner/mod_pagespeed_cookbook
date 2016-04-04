@@ -29,7 +29,7 @@ when 'rhel', 'fedora'
   if node['kernel']['machine'] =~ /^i[36']86$/
     'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_i386.rpm'
   else
-    'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.rpm'
+    'https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_x86_64.rpm'
   end
 end
 
